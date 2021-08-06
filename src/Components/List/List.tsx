@@ -44,7 +44,7 @@ export const List = ({ order_details, order_lines }: ListProps) => {
       {order_lines.map((line, idx) => (
         <div
           key={idx}
-          className="flex"
+          className="flex even:bg-gray-200"
           style={{
             height: `${LINE_HEIGHT * line.lineHeight + PADDING_HEIGHT}px`,
           }}

@@ -683,3 +683,7 @@ video {
 .leading-\[14px\] {
 	line-height: 14px;
 }
+.even\:bg-gray-200:nth-child(even) {
+	--tw-bg-opacity: 1;
+	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}
