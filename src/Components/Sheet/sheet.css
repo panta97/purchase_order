@@ -14,6 +14,10 @@
     height: 297mm;
   }
 
+  .no-print {
+    display: none;
+  }
+
   .sheet-page {
     margin: 0;
     -webkit-print-color-adjust: exact;

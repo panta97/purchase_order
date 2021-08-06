@@ -8,7 +8,7 @@ interface DestinyProps {
 
 export const Destiny = ({ store, updateStore }: DestinyProps) => {
   return (
-    <div className="px-12 mx-8 mt-2">
+    <div className="no-print px-12 mx-8 mt-2">
       <div className="font-mono">
         <label>DESTINO: </label>
         <select className="uppercase" value={store.id} onChange={updateStore}>
