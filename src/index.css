@@ -542,7 +542,134 @@ video {
 [hidden] {
   display: none;
 }
-.text-green-700 {
-	--tw-text-opacity: 1;
-	color: rgba(4, 120, 87, var(--tw-text-opacity));
+
+*, ::before, ::after {
+	--tw-border-opacity: 1;
+	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+}
+.my-\[10mm\] {
+	margin-top: 10mm;
+	margin-bottom: 10mm;
+}
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+.mb-2 {
+	margin-bottom: 0.5rem;
+}
+.inline-block {
+	display: inline-block;
+}
+.flex {
+	display: flex;
+}
+.inline-flex {
+	display: inline-flex;
+}
+.table {
+	display: table;
+}
+.h-\[297mm\] {
+	height: 297mm;
+}
+.w-1\/2 {
+	width: 50%;
+}
+.w-full {
+	width: 100%;
+}
+.w-\[150px\] {
+	width: 150px;
+}
+.w-\[65\%\] {
+	width: 65%;
+}
+.w-\[15\%\] {
+	width: 15%;
+}
+.w-\[5\%\] {
+	width: 5%;
+}
+.w-\[calc\(15\%\/3\)\] {
+	width: calc(15% / 3);
+}
+.w-\[210mm\] {
+	width: 210mm;
+}
+.items-center {
+	align-items: center;
+}
+.justify-center {
+	justify-content: center;
+}
+.break-all {
+	word-break: break-all;
+}
+.border {
+	border-width: 1px;
+}
+.border-b {
+	border-bottom-width: 1px;
+}
+.border-l {
+	border-left-width: 1px;
+}
+.border-t {
+	border-top-width: 1px;
+}
+.border-r {
+	border-right-width: 1px;
+}
+.border-dashed {
+	border-style: dashed;
+}
+.border-black {
+	--tw-border-opacity: 1;
+	border-color: rgba(0, 0, 0, var(--tw-border-opacity));
+}
+.bg-white {
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
+.p-1 {
+	padding: 0.25rem;
+}
+.py-8 {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.px-12 {
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+.pr-2 {
+	padding-right: 0.5rem;
+}
+.pl-2 {
+	padding-left: 0.5rem;
+}
+.text-right {
+	text-align: right;
+}
+.font-mono {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.text-lg {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+}
+.text-xs {
+	font-size: 0.75rem;
+	line-height: 1rem;
+}
+.text-sm {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+.font-semibold {
+	font-weight: 600;
+}
+.uppercase {
+	text-transform: uppercase;
 }
