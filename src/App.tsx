@@ -22,7 +22,12 @@ const App = () => {
     <div>
       <Destiny store={store} updateStore={handleStoreUpdate} />
       {orderGroups.map((orderGroup, idx) => (
-        <Sheet key={idx} orderGroup={orderGroup} totalQty={totalQty} />
+        <Sheet
+          key={idx}
+          orderGroup={orderGroup}
+          totalQty={totalQty}
+          store={store}
+        />
       ))}
     </div>
   );

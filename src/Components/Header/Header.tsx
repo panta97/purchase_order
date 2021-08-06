@@ -1,9 +1,11 @@
 import { HEADER_HEIGHT } from "../../logic/constants";
 import { IOrderDetailsGrouped } from "../../logic/rowHandler";
+import { Catalog } from "../../types";
 
 interface HeaderProps {
   order_details: IOrderDetailsGrouped;
   totalQty: number;
+  store: Catalog;
 }
 
 const getFirstName = (fullName: string) => {
@@ -12,7 +14,7 @@ const getFirstName = (fullName: string) => {
   return fullName;
 };
 
-export const Header = ({ order_details, totalQty }: HeaderProps) => {
+export const Header = ({ order_details, totalQty, store }: HeaderProps) => {
   return (
     <div className="border-b border-black border-dashed mb-2">
       <h2 className="text-lg font-semibold">
@@ -76,7 +78,7 @@ export const Header = ({ order_details, totalQty }: HeaderProps) => {
                   <td className="w-[150px] text-right font-semibold">
                     Destino:
                   </td>
-                  <td>Abtao</td>
+                  <td>{store.name}</td>
                 </tr>
               </tbody>
             </table>
