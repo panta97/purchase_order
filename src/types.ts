@@ -17,3 +17,8 @@ export interface Order {
   order_details: OrderDetails;
   order_lines: OrderLine[];
 }
+
+export interface Catalog {
+  id: number;
+  name: string;
+}

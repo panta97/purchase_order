@@ -547,6 +547,10 @@ video {
 	--tw-border-opacity: 1;
 	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
+.mx-8 {
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
 .my-\[10mm\] {
 	margin-top: 10mm;
 	margin-bottom: 10mm;
@@ -554,6 +558,9 @@ video {
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
+}
+.mt-2 {
+	margin-top: 0.5rem;
 }
 .mb-2 {
 	margin-bottom: 0.5rem;
@@ -635,13 +642,13 @@ video {
 .p-1 {
 	padding: 0.25rem;
 }
-.py-8 {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-}
 .px-12 {
 	padding-left: 3rem;
 	padding-right: 3rem;
+}
+.py-8 {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 .pr-2 {
 	padding-right: 0.5rem;
