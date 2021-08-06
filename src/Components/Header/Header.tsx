@@ -60,7 +60,9 @@ export const Header = ({ order_details, totalQty, store }: HeaderProps) => {
             <table>
               <tbody>
                 <tr>
-                  <td colSpan={2}>{order_details.partner_name}</td>
+                  <td colSpan={2} className="leading-[14px] break-all">
+                    {order_details.partner_name}
+                  </td>
                 </tr>
                 <tr>
                   <td className="w-[150px] text-right font-semibold">

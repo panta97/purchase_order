@@ -680,3 +680,6 @@ video {
 .uppercase {
 	text-transform: uppercase;
 }
+.leading-\[14px\] {
+	line-height: 14px;
+}
