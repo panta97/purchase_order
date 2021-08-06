@@ -1,16 +1,29 @@
-import order from "./mock.json";
-import { RowHandler } from "./logic/rowHandler";
+import { IOrderGrouped, RowHandler } from "./logic/rowHandler";
 import { Sheet } from "./Components/Sheet/Sheet";
 import { Destiny } from "./Components/Destiny/Destiny";
 import { useState } from "react";
 import { Catalog } from "./types";
 import { stores } from "./logic/stores";
+import { useEffect } from "react";
+import { getPurchaseOrder } from "./logic/endpoint";
 
 const App = () => {
   const [store, setStore] = useState<Catalog>(stores[0]);
-  const rowHandler = new RowHandler(order);
-  const orderGroups = rowHandler.getGroups();
-  const totalQty = rowHandler.getTotalQty();
+  const [orderGroups, setOrderGroups] = useState<IOrderGrouped[]>([]);
+  const [totalQty, setTotalQty] = useState<number>(0);
+
+  const fetchOrder = async () => {
+    const params = new URLSearchParams(window.location.search);
+    const order = await getPurchaseOrder(params);
+    if (!order) return;
+    const rowHandler = new RowHandler(order);
+    setOrderGroups(rowHandler.getGroups());
+    setTotalQty(rowHandler.getTotalQty);
+  };
+
+  useEffect(() => {
+    fetchOrder();
+  }, []);
 
   const handleStoreUpdate = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newId = Number(e.target.value);
@@ -18,6 +31,7 @@ const App = () => {
     if (!newStore) return;
     setStore(newStore);
   };
+
   return (
     <div>
       <Destiny store={store} updateStore={handleStoreUpdate} />
