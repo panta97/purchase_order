@@ -1,4 +1,5 @@
 import { Order, OrderDetails, OrderLine } from "./../types";
+import { LINE_HEIGHT, PADDING_HEIGHT } from "./constants";
 
 export interface IOrderLineGrouped extends OrderLine {
   lineHeight: number;
@@ -15,8 +16,8 @@ export interface IOrderGrouped {
 }
 
 export interface IRowHandler {
-  MAX_ROWS_HEADER: number;
-  MAX_ROWS: number;
+  MAX_HEIGHT_HEADER: number;
+  MAX_HEIGHT: number;
   order: Order;
   getGroups: () => IOrderGrouped[];
 }
@@ -25,12 +26,16 @@ export interface IRowHandler {
  * this class handles the grouping of order lines into tables
  */
 export class RowHandler implements IRowHandler {
-  MAX_ROWS_HEADER = 39;
-  MAX_ROWS = 46;
+  MAX_HEIGHT_HEADER = 25 * 32;
+  MAX_HEIGHT = 29 * 32;
   order: Order;
   orderGroups: IOrderGrouped[] = [];
   constructor(order: Order) {
     this.order = order;
+  }
+
+  private getHeight(lineHeight: number) {
+    return LINE_HEIGHT * lineHeight + PADDING_HEIGHT;
   }
 
   getGroups() {
@@ -60,17 +65,19 @@ export class RowHandler implements IRowHandler {
         lineHeight,
       };
       currOrderGroup.order_lines.push(orderLineGroup);
-      accHeight += lineHeight;
+      accHeight += this.getHeight(lineHeight);
 
-      const maxRows =
-        this.orderGroups.length === 0 ? this.MAX_ROWS_HEADER : this.MAX_ROWS;
-      if (accHeight > maxRows) {
+      const maxHeight =
+        this.orderGroups.length === 0
+          ? this.MAX_HEIGHT_HEADER
+          : this.MAX_HEIGHT;
+      if (accHeight > maxHeight) {
         currOrderGroup.order_lines.pop();
         this.orderGroups.push(currOrderGroup!);
         // excedent
         page++;
         totalPages += 1;
-        accHeight = orderLineGroup.lineHeight;
+        accHeight = this.getHeight(orderLineGroup.lineHeight);
         currOrderGroup = {
           order_details: { ...this.order.order_details, page, totalPages: 0 },
           order_lines: [orderLineGroup],
