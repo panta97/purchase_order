@@ -16,6 +16,7 @@ const App = () => {
     const params = new URLSearchParams(window.location.search);
     const order = await getPurchaseOrder(params);
     if (!order) return;
+    document.title = order.order_details.name;
     const rowHandler = new RowHandler(order);
     setOrderGroups(rowHandler.getGroups());
     setTotalQty(rowHandler.getTotalQty);
